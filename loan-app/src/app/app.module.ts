@@ -20,6 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +45,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
