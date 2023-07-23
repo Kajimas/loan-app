@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  background-color: #1a1a1a;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import "~@angular/material/theming";
+
+// Define the Slytherin palette
+$slytherin-app-primary: mat-palette($mat-green, 800); // Slytherin Green
+$slytherin-app-accent: mat-palette(
+  $mat-grey,
+  700,
+  700,
+  800
+); // Slytherin Silver
+
+// Create the theme
+$slytherin-app-theme: mat-dark-theme(
+  $slytherin-app-primary,
+  $slytherin-app-accent
+);
+
+@include mat-core();
+@include angular-material-theme($slytherin-app-theme);

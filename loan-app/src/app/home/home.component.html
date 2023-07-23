@@ -1,0 +1,38 @@
+<h1>Welcome to Loan_App!</h1>
+<br />
+<br />
+
+<form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Principle" formControlName="principle" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Interest rate" formControlName="interest" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Number of years" formControlName="years" />
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button type="submit">Calculate</button>
+  </div>
+</form>
+
+<div *ngIf="monthlyPayment && totalInterest">
+  <h2>
+    Your monthly payment:
+    <br />
+    {{ monthlyPayment | currency }}
+  </h2>
+
+  <h2>
+    Total interest paid:
+    <br />
+    {{ totalInterest | currency }}
+  </h2>
+</div>
