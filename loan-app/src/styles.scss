@@ -27,5 +27,17 @@ $slytherin-app-theme: mat-dark-theme(
   $slytherin-app-accent
 );
 
+.card-title-icon {
+  text-align: center;
+}
+
+.card-title-icon, .mat-icon {
+  font-size: 72px;
+}
+
+.align-center {
+  text-align: center;
+}
+
 @include mat-core();
 @include angular-material-theme($slytherin-app-theme);

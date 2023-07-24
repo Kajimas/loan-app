@@ -1,5 +1,13 @@
+/*
+Title: home.component.ts
+Author: William Egge
+Date: 23 July 2023
+Description: The home component for the Loan App.
+*/
+
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +21,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.loanForm = this.formBuilder.group({
-      principle: [''],
-      interest: [''],
-      years: [''],
+      principle: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      interest: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      years: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
     });
   }
-  
+
   onSubmit(): void {
     const values = this.loanForm.value;
     const principle = values.principle;

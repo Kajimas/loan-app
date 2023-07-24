@@ -1,3 +1,10 @@
+/*
+Title: app.module.ts
+Author: William Egge
+Date: 23 July 2023
+Description: The app module for the Loan App.
+*/
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -22,8 +29,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +50,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatInputModule,
     MatIconModule,
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

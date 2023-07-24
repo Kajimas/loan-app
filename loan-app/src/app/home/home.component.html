@@ -1,38 +1,61 @@
-<h1>Welcome to Loan_App!</h1>
-<br />
-<br />
+<mat-card-title>Welcome to Loan_App!</mat-card-title>
 
-<form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
-  <div>
-    <mat-form-field>
-      <input matInput placeholder="Principle" formControlName="principle" />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field>
-      <input matInput placeholder="Interest rate" formControlName="interest" />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field>
-      <input matInput placeholder="Number of years" formControlName="years" />
-    </mat-form-field>
-  </div>
-  <div>
-    <button mat-raised-button type="submit">Calculate</button>
-  </div>
-</form>
+<mat-card class="mat-elevation-z8">
+  <mat-card-content>
+    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+      <div>
+        <h2>Principle</h2>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="principle" required />
+          <mat-error *ngIf="loanForm.controls.principle.invalid">
+            Please enter a valid number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <br />
+        <h2>Interest Rate</h2>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="interest" required />
+          <mat-error *ngIf="loanForm.controls.interest.invalid">
+            Please enter a valid number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <br />
+        <h2>Number of Years</h2>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="years" required />
+          <mat-error *ngIf="loanForm.controls.years.invalid">
+            Please enter a valid number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <br />
+      <div>
+        <button mat-raised-button type="submit">Calculate</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
 
-<div *ngIf="monthlyPayment && totalInterest">
-  <h2>
-    Your monthly payment:
-    <br />
-    {{ monthlyPayment | currency }}
-  </h2>
+<br /><br />
 
-  <h2>
-    Total interest paid:
-    <br />
-    {{ totalInterest | currency }}
-  </h2>
+<div>
+  <mat-card class="mat-elevation-z8">
+    <mat-card-title>
+      Your monthly payment:
+
+      {{ monthlyPayment | currency }}
+
+      <br />
+      <br />
+      <br />
+
+      Total interest paid:
+
+      {{ totalInterest | currency }}
+    </mat-card-title>
+  </mat-card>
 </div>
