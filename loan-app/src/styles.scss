@@ -39,5 +39,10 @@ $slytherin-app-theme: mat-dark-theme(
   text-align: center;
 }
 
+.attribution-link {
+  color: var(--primary-color);
+}
+
+
 @include mat-core();
 @include angular-material-theme($slytherin-app-theme);
